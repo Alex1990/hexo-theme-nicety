@@ -1,0 +1,14 @@
+<div class="person-card">
+  <div class="avatar">
+    <% if (config.avatar && (/\.(jpg|jpep|png|gif|bmp)$/.test(config.avatar) || config.avatar.indexOf('@') === -1)) {%>
+      <img src="<%- url_for(config.avatar) %>" alt="Avatar" width="128" height="128">
+    <% } else { %>
+      <img src="<%- gravatar(config.avatar || config.email, 128) %>" alt="Avatar" width="128" height="128">
+    <% } %>
+  </div>
+  <% var author = config.author || config.title %>
+  <h1 class="author"><%= author %></h1>
+  <% if (config.description) { %>
+  <p class="description"><%= config.description %></p>
+  <% } %>
+</div>

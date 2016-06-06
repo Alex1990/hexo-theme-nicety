@@ -1,0 +1,20 @@
+<div class="social-list-wrap">
+  <ul class="social-list clearfix">
+  <% for (var item in theme.socials) { %>
+    <li class="social-list-item item-<%= item %>">
+      <a href="<%- url_for(theme.socials[item]) %>" target="_blank">
+        <i class="icon icon-<%= item %>"></i>
+        <%
+          var capItem = '';
+          if (item === 'rss') {
+            capItem = item.toUpperCase();
+          } else {
+            capItem = item.charAt(0).toUpperCase() + item.slice(1);
+          }
+        %>
+        <span class="soical-list-item-text visuallyhidden"><%= capItem %></span>
+      </a>
+    </li>
+  <% } %>
+  </ul>
+</div>

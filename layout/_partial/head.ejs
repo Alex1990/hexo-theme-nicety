@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]><html class="no-js ie lt-ie10 lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"><![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10"><![endif]-->
+<!--[if gt IE 9]<!--><html class="no-js gt-ie9"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <%
+  var title = page.title;
+
+  if (is_archive()) {
+    title = 'Archives';
+
+    if (is_month()) {
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()) {
+      title += ': ' + page.year;
+    }
+  } else if (is_category()) {
+    title = 'Category: ' + page.category;
+  } else if (is_tag()) {
+    title = 'Tag: ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <% if (config.rss) { %>
+    <link rel="alternative" href="<%- config.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+  <% if (config.favicon) { %>
+    <link rel="shortcut icon" href="<%- config.favicon %>">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/win-8-icon-152x152.png">
+  <% } %>
+
+  <link rel="stylesheet" href="/css/dist/katex.min.css?v=201605291527">
+  <link rel="stylesheet" href="/css/dist/style.min.css?v=201605281526">
+  <script src="/js/modernizr-custom.min.js?v=201605281526"></script>
+  <%- partial('google-analytics') %>
+</head>

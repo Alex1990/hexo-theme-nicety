@@ -1,0 +1,18 @@
+<aside class="sidebar">
+  <%- partial('_partial/top-btn', null, {cache: !config.relative_link}) %>
+  <div class="sidebar-inner">
+    <% if (theme.person_card) { %>
+      <%- partial('_widget/person_card') %>
+    <% } %>
+    <% if (theme.socials) { %>
+      <%- partial('_widget/social', {class_name: 'social-list'}) %>
+    <% } %>
+    <% if (theme.widgets && theme.widgets.length) { %>
+    <div class="widgets">
+      <% theme.widgets.forEach(function(widget) { %>
+        <%- partial('_widget/' + widget) %>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>
+</aside>

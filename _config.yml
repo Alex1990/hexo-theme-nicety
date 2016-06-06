@@ -1,0 +1,16 @@
+excerpt_size: 300
+excerpt_link: 更多
+
+sidebar: true
+person_card: true
+
+widgets:
+- category
+- tagcloud
+
+socials:
+ twitter: 'https://twitter.com/AlexChaoHere'
+ weibo: 'http://weibo.com/u/1660160490'
+ github: 'https://github.com/Alex1990'
+ email: 'mailto:alexchao1990@gmail.com'
+ rss: '/atom.xml'

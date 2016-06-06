@@ -1,0 +1,7 @@
+<% if (post.tags && post.tags.length) { %>
+  <ul class="article-tag-list clearfix">
+    <% post.tags.forEach(function(v){ %>
+    <li class="article-tag-list-item"><a href="<%- v.permalink %>"><%- v.name %></a></li>
+    <% }) %>
+  </ul>
+<% } %>
